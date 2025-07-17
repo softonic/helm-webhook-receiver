@@ -36,8 +36,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           {{- range $pkey, $pval := .Values.env }}
-          - name: {{ $pkey }}
-            value: {{ quote $pval }}
+            - name: {{ $pkey }}
+              value: {{ quote $pval }}
           {{- end }}
           {{- with .Values.extraEnv }}
             {{- tpl . $ | nindent 12 }}
